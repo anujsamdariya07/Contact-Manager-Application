@@ -7,6 +7,9 @@ const {
   updateContact,
   deleteContact,
 } = require('../controllers/contactController');
+const validateToken = require('../middlewares/validateTokenHandler');
+
+router.use(validateToken);
 
 router.route('/').get(getContact).post(createContact);
 
